@@ -6,7 +6,7 @@
 #
 Name     : innoextract
 Version  : 1.7
-Release  : 1
+Release  : 2
 URL      : https://constexpr.org/innoextract/files/innoextract-1.7.tar.gz
 Source0  : https://constexpr.org/innoextract/files/innoextract-1.7.tar.gz
 Source99 : https://constexpr.org/innoextract/files/innoextract-1.7.tar.gz.sig
@@ -62,19 +62,22 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1559454233
+export SOURCE_DATE_EPOCH=1559454472
 mkdir -p clr-build
 pushd clr-build
-export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$CFLAGS -fno-lto "
-export FFLAGS="$CFLAGS -fno-lto "
-export CXXFLAGS="$CXXFLAGS -fno-lto "
+export AR=gcc-ar
+export RANLIB=gcc-ranlib
+export NM=gcc-nm
+export CFLAGS="$CFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition "
+export FCFLAGS="$CFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition "
+export FFLAGS="$CFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition "
+export CXXFLAGS="$CXXFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition "
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1559454233
+export SOURCE_DATE_EPOCH=1559454472
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/innoextract
 cp LICENSE %{buildroot}/usr/share/package-licenses/innoextract/LICENSE
