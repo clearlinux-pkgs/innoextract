@@ -6,7 +6,7 @@
 #
 Name     : innoextract
 Version  : 1.7
-Release  : 2
+Release  : 3
 URL      : https://constexpr.org/innoextract/files/innoextract-1.7.tar.gz
 Source0  : https://constexpr.org/innoextract/files/innoextract-1.7.tar.gz
 Source99 : https://constexpr.org/innoextract/files/innoextract-1.7.tar.gz.sig
