@@ -5,25 +5,23 @@
 # Source0 file verified with key 0x28555A66D7E1DEC9 (daniel@constexpr.org)
 #
 Name     : innoextract
-Version  : 1.7
-Release  : 3
-URL      : https://constexpr.org/innoextract/files/innoextract-1.7.tar.gz
-Source0  : https://constexpr.org/innoextract/files/innoextract-1.7.tar.gz
-Source99 : https://constexpr.org/innoextract/files/innoextract-1.7.tar.gz.sig
-Summary  : A tool to extract installers created by Inno Setup
+Version  : 1.8
+Release  : 4
+URL      : https://github.com/dscharrer/innoextract/releases/download/1.8/innoextract-1.8.tar.gz
+Source0  : https://github.com/dscharrer/innoextract/releases/download/1.8/innoextract-1.8.tar.gz
+Source1  : https://github.com/dscharrer/innoextract/releases/download/1.8/innoextract-1.8.tar.gz.sig
+Summary  : No detailed summary available
 Group    : Development/Tools
-License  : BSD-3-Clause
+License  : Zlib
 Requires: innoextract-bin = %{version}-%{release}
 Requires: innoextract-license = %{version}-%{release}
 Requires: innoextract-man = %{version}-%{release}
 BuildRequires : boost-dev
 BuildRequires : buildreq-cmake
-BuildRequires : bzip2-dev
 BuildRequires : doxygen
 BuildRequires : pkg-config
 BuildRequires : pkgconfig(liblzma)
 BuildRequires : python3
-BuildRequires : zlib-dev
 
 %description
 # innoextract - A tool to unpack installers created by Inno Setup
@@ -55,16 +53,18 @@ man components for the innoextract package.
 
 
 %prep
-%setup -q -n innoextract-1.7
+%setup -q -n innoextract-1.8
+cd %{_builddir}/innoextract-1.8
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1559454472
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1579637618
 mkdir -p clr-build
 pushd clr-build
+export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -73,14 +73,14 @@ export FCFLAGS="$CFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sec
 export FFLAGS="$CFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition "
 %cmake ..
-make  %{?_smp_mflags}
+make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1559454472
+export SOURCE_DATE_EPOCH=1579637618
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/innoextract
-cp LICENSE %{buildroot}/usr/share/package-licenses/innoextract/LICENSE
+cp %{_builddir}/innoextract-1.8/LICENSE %{buildroot}/usr/share/package-licenses/innoextract/f40c216cd654f955c27946064fced5a5d41e47fb
 pushd clr-build
 %make_install
 popd
@@ -94,7 +94,7 @@ popd
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/innoextract/LICENSE
+/usr/share/package-licenses/innoextract/f40c216cd654f955c27946064fced5a5d41e47fb
 
 %files man
 %defattr(0644,root,root,0755)
