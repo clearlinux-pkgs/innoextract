@@ -6,7 +6,7 @@
 #
 Name     : innoextract
 Version  : 1.8
-Release  : 5
+Release  : 6
 URL      : https://github.com/dscharrer/innoextract/releases/download/1.8/innoextract-1.8.tar.gz
 Source0  : https://github.com/dscharrer/innoextract/releases/download/1.8/innoextract-1.8.tar.gz
 Source1  : https://github.com/dscharrer/innoextract/releases/download/1.8/innoextract-1.8.tar.gz.sig
@@ -61,7 +61,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1579637618
+export SOURCE_DATE_EPOCH=1592454274
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -69,15 +69,15 @@ export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition "
 %cmake ..
 make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1579637618
+export SOURCE_DATE_EPOCH=1592454274
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/innoextract
 cp %{_builddir}/innoextract-1.8/LICENSE %{buildroot}/usr/share/package-licenses/innoextract/f40c216cd654f955c27946064fced5a5d41e47fb
