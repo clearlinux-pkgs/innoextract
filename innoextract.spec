@@ -7,7 +7,7 @@
 #
 Name     : innoextract
 Version  : 1.8
-Release  : 13
+Release  : 14
 URL      : https://github.com/dscharrer/innoextract/releases/download/1.8/innoextract-1.8.tar.gz
 Source0  : https://github.com/dscharrer/innoextract/releases/download/1.8/innoextract-1.8.tar.gz
 Source1  : https://github.com/dscharrer/innoextract/releases/download/1.8/innoextract-1.8.tar.gz.sig
@@ -65,7 +65,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1683824100
+export SOURCE_DATE_EPOCH=1685555631
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -98,7 +98,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1683824100
+export SOURCE_DATE_EPOCH=1685555631
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/innoextract
 cp %{_builddir}/innoextract-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/innoextract/f40c216cd654f955c27946064fced5a5d41e47fb || :
