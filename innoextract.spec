@@ -7,7 +7,7 @@
 #
 Name     : innoextract
 Version  : 1.8
-Release  : 12
+Release  : 13
 URL      : https://github.com/dscharrer/innoextract/releases/download/1.8/innoextract-1.8.tar.gz
 Source0  : https://github.com/dscharrer/innoextract/releases/download/1.8/innoextract-1.8.tar.gz
 Source1  : https://github.com/dscharrer/innoextract/releases/download/1.8/innoextract-1.8.tar.gz.sig
