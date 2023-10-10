@@ -7,10 +7,10 @@
 #
 Name     : innoextract
 Version  : 1.9
-Release  : 15
-URL      : https://github.com/dscharrer/innoextract/releases/download/1.9/innoextract-1.9.tar.gz
-Source0  : https://github.com/dscharrer/innoextract/releases/download/1.9/innoextract-1.9.tar.gz
-Source1  : https://github.com/dscharrer/innoextract/releases/download/1.9/innoextract-1.9.tar.gz.sig
+Release  : 16
+URL      : https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9.tar.gz
+Source0  : https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9.tar.gz
+Source1  : https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9.tar.gz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Zlib
@@ -65,7 +65,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1696974058
+export SOURCE_DATE_EPOCH=1696975057
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -124,7 +124,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1696974058
+export SOURCE_DATE_EPOCH=1696975057
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/innoextract
 cp %{_builddir}/innoextract-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/innoextract/5183f19eab2f47551af9e739840c0461c49cea17 || :
