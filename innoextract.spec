@@ -9,7 +9,7 @@
 #
 Name     : innoextract
 Version  : 1.9
-Release  : 19
+Release  : 20
 URL      : https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9.tar.gz
 Source0  : https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9.tar.gz
 Source1  : https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9.tar.gz.sig
